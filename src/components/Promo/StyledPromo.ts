@@ -23,7 +23,7 @@ export const StyledPromo = styled(SectionContainer)`
     h1 {
       font-size: 40px;
       line-height: 57.6px;
-      font-weight: 500;
+      font-weight: 700;
       text-align: center;
     }
     

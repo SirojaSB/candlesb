@@ -10,6 +10,7 @@ const Global = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: Comfortaa, sans-serif;
+    color: #0B254B;
   }
 `
 
