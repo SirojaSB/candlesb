@@ -5,9 +5,12 @@ import profile from '../../assets/images/ProfileIcon.svg'
 import cart from '../../assets/images/CartIcon.svg'
 
 export const StyledHeader = styled(SectionContainer)`
-  margin: 20px 0;
+  width: calc(100% - (165px * 2));
+  margin: 20px auto 0;
+  padding: 0 0 20px;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #E5E5E5;
 `
 
 export const HeaderContainer = styled.div`

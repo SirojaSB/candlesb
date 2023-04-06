@@ -3,20 +3,24 @@ import React from "react";
 
 type InfoButtonProps = {
     width?: string;
-    children?: string;
+    children?: React.ReactNode;
 }
 
 const StyledButton = styled.button<InfoButtonProps>`
   width: ${({width}) => width || '310px'};
+  height: fit-content;
   padding: 8px 44px;
   background-color: #56B280;
   border-radius: 4px;
   color: #fff;
   border: 0;
   font-size: 18px;
-  line-height: 24.19px;
-  font-weight: 500;
+  line-height: 20px;
+  font-weight: 700;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const InfoButton: React.FC<InfoButtonProps> = ({width, children}) => {

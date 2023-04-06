@@ -1,7 +1,7 @@
 import React from "react";
 import {ProductsContainer, StyledProducts} from "../Products/StyledProducts";
 import ProductCard from "../ProductCard";
-import image from "../../assets/images/Product1.png";
+import image from "../../assets/images/Product1.svg";
 
 const PopularProducts: React.FC = () => {
     return (
