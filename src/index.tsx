@@ -11,6 +11,10 @@ const Global = createGlobalStyle`
     box-sizing: border-box;
     font-family: Comfortaa, sans-serif;
     color: #0B254B;
+    
+    input:focus-visible {
+      outline: none;
+    }
   }
 `
 

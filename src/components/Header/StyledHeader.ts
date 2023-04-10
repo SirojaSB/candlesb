@@ -16,18 +16,6 @@ export const StyledHeader = styled(SectionContainer)`
 export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
-  
-  img {
-    width: 33px;
-    height: 33px;
-  }
-  
-  p {
-    font-size: 16px;
-    color: #56B280;
-    font-weight: 700;
-    margin-left: 3px;
-  }
 `
 
 export const ProfileButton = styled.button`
