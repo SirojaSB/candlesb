@@ -5,7 +5,9 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
-import DetailsPage from "./pages/AuthenticationPage";
+import DetailsPage from "./pages/DetailsPage";
+import PaymentPage from "./pages/PaymentPage";
+import ThanksPage from "./pages/ThanksPage";
 
 const App: React.FC = () => {
     return (
@@ -14,7 +16,9 @@ const App: React.FC = () => {
             {/*<MainPage />*/}
             {/*<ProductPage/>*/}
             {/*<CartPage/>*/}
-            <DetailsPage/>
+            {/*<DetailsPage/>*/}
+            {/*<PaymentPage/>*/}
+            <ThanksPage/>
             {/*<Footer/>*/}
         </div>
     );

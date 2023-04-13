@@ -4,6 +4,7 @@ import React from "react";
 type InfoButtonProps = {
     width?: string;
     children?: React.ReactNode;
+    type?: "button" | "submit" | "reset";
 }
 
 const StyledButton = styled.button<InfoButtonProps>`
@@ -23,8 +24,10 @@ const StyledButton = styled.button<InfoButtonProps>`
   justify-content: center;
 `
 
-const InfoButton: React.FC<InfoButtonProps> = ({width, children}) => {
-    return <StyledButton width={width}>
+
+
+const InfoButton: React.FC<InfoButtonProps> = ({type, width, children}) => {
+    return <StyledButton type={type ? type : 'button'} width={width}>
         {children}
     </StyledButton>
 }

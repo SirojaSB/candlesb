@@ -1,11 +1,12 @@
 import React from "react";
 import InfoButton from "../../components/InfoButton";
 import styled from "styled-components";
-import {SectionContainer} from "../../components/SectionContainer";
 import NavPath from "../../components/NavPath";
 import HeaderLogo from "../../components/HeaderLogo";
+import TotalPricePaymentSection from "../../components/TotalPricePaymentSection";
+import { PaymentStepContainer } from '../../components/PaymentStepContainer'
 
-const StyledDetailsPage = styled(SectionContainer)`
+const StyledDetailsPage = styled.div`
   display: flex;
   justify-content: space-between;
 
@@ -66,15 +67,10 @@ const StyledDetailsPage = styled(SectionContainer)`
   }
 `
 
-const PaymentPageSection = styled.div`
-  width: 446px;
-  margin: 20px 0 102px;
-`
-
 const DetailsPage: React.FC = () => {
     return (
         <StyledDetailsPage>
-            <PaymentPageSection>
+            <PaymentStepContainer>
                 <HeaderLogo/>
                 <NavPath page='details'/>
                 <form>
@@ -96,36 +92,12 @@ const DetailsPage: React.FC = () => {
                         <input type="text" placeholder='Страна'/>
                     </label>
                     <div className='details-page-buttons-container'>
-                        <button className='details-page-buttons-container-back'>Вернуться назад</button>
-                        <InfoButton width='222px'>Далее</InfoButton>
+                        <button className='details-page-buttons-container-back'>Назад</button>
+                        <InfoButton type='submit' width='222px'>Далее</InfoButton>
                     </div>
                 </form>
-            </PaymentPageSection>
-            <div>
-                <div>
-                    <div>
-                        <p></p>
-                    </div>
-                    <div>
-                        <p></p>
-                        <p></p>
-                    </div>
-                    <div>
-                        <div>
-                            <p></p>
-                            <p></p>
-                        </div>
-                        <div>
-                            <p></p>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div>
-                        <p></p>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
+            </PaymentStepContainer>
+            <TotalPricePaymentSection />
         </StyledDetailsPage>
     )
 }

@@ -1,0 +1,136 @@
+import React from "react";
+import InfoButton from "../../components/InfoButton";
+import styled from "styled-components";
+import NavPath from "../../components/NavPath";
+import HeaderLogo from "../../components/HeaderLogo";
+import TotalPricePaymentSection from "../../components/TotalPricePaymentSection";
+import {PaymentStepContainer} from '../../components/PaymentStepContainer'
+
+const StyledPaymentPage = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      border: 0.5px solid #898989;
+      border-radius: 5px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 26px;
+      padding: 7px 10px;
+      margin-top: 12px;
+
+      &:focus {
+        border: 1px solid #56B280;
+      }
+    }
+
+    .payment-label-form {
+      margin: 23px 0 20px;
+      display: flex;
+      flex-direction: column;
+      padding: 19px;
+      border: 1px solid #E5E5E5;
+      border-radius: 10px;
+    }
+
+
+    .container-label-form {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .payment-page-checkbox-label {
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 18px;
+      display: flex;
+      position: relative;
+      margin-bottom: 42px;
+    }
+
+    .payment-page-checkbox {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+
+      &-visible {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+        border-radius: 50%;
+        border: 1px solid #56B280;
+        background-color: transparent;
+        position: relative;
+        display: block;
+        cursor: pointer;
+
+        &-active::after {
+          content: '';
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #56B280;
+          position: absolute;
+          top: 3px;
+          left: 3px;
+        }
+      }
+    }
+
+    .payment-page-buttons-container {
+      display: flex;
+      justify-content: space-between;
+
+      &-back {
+        border: none;
+        background-color: transparent;
+        text-decoration: underline;
+        color: #56B280;
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: -0.9px;
+      }
+    }
+  }
+`
+
+const PaymentPage: React.FC = () => {
+    return (
+        <StyledPaymentPage>
+            <PaymentStepContainer>
+                <HeaderLogo/>
+                <NavPath page='payment'/>
+                <form>
+                    Способ оплаты
+                    <label className='payment-label-form'>
+                        Оплата картой
+                        <input type="text" placeholder='Номер карты'/>
+                        <input type="text" placeholder='Имя Фамилия'/>
+                        <div className='container-label-form'>
+                            <input type="text" placeholder='ММ/ГГ'/>
+                            <input type="text" placeholder='CVV'/>
+                        </div>
+                    </label>
+                    <label className='payment-page-checkbox-label'>
+                        <input className='payment-page-checkbox' type='checkbox'/>
+                        <span className='payment-page-checkbox-visible payment-page-checkbox-visible-active'/>
+                        Оплата при доставке
+                    </label>
+                    <div className='payment-page-buttons-container'>
+                        <button className='payment-page-buttons-container-back'>Назад</button>
+                        <InfoButton type='submit' width='166px'>Оплатить</InfoButton>
+                    </div>
+                </form>
+            </PaymentStepContainer>
+            <TotalPricePaymentSection/>
+        </StyledPaymentPage>
+    )
+}
+
+export default PaymentPage
