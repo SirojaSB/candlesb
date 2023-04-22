@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import {SectionContainer} from "../SectionContainer";
 import background from '../../assets/images/BgImage.png'
+import React from "react";
 
-export const StyledPromo = styled(SectionContainer)`
+const StyledPromoCont = styled(SectionContainer)`
   background-image: url(${background});
   background-size: cover;
   display: flex;
@@ -36,3 +37,11 @@ export const StyledPromo = styled(SectionContainer)`
     }
   }
 `
+
+const StyledPromo: React.FC<{children: React.ReactNode}> = ({children}) => {
+    return <StyledPromoCont>
+            {children}
+        </StyledPromoCont>
+}
+
+export default StyledPromo

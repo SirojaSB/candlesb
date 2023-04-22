@@ -1,15 +1,15 @@
 import React from "react";
-
-import {CartButton, HeaderContainer, ProfileButton, StyledHeader} from "./StyledHeader";
 import HeaderLogo from "../HeaderLogo";
+import StyledHeader from "./StyledHeader";
+import HeaderContainer from "./HeaderContainer";
 
 const Header: React.FC = () => {
     return (
         <StyledHeader>
             <HeaderLogo/>
             <HeaderContainer>
-                <ProfileButton/>
-                <CartButton />
+                <button type='button' className='header-profile-button'/>
+                <button type='button' className='header-cart-button'/>
             </HeaderContainer>
         </StyledHeader>
     )

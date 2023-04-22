@@ -1,6 +1,6 @@
 import React from "react";
-import {StyledPromo} from "./StyledPromo";
 import InfoButton from "../InfoButton";
+import StyledPromo from "./StyledPromo";
 
 const Promo: React.FC = () => {
     return (

@@ -1,103 +1,12 @@
 import React from "react";
-import styled from "styled-components";
-import {SectionContainer} from "../../components/SectionContainer";
+
 import mainimg from '../../assets/images/Product1.svg'
-import {InnerContainer} from "../../components/InnerContainer";
 import InfoButton from "../../components/InfoButton";
 import cartimg from '../../assets/images/CartIcon.svg'
 import ProductCounter from "../../components/ProdictCounter";
-
-const StyledProductPage = styled(SectionContainer)`
-  padding-bottom: 114px;
-  padding-top: 47px;
-  display: flex;
-  justify-content: center;
-`
-
-const ShowingContainer = styled(InnerContainer)<{ image: string }>`
-  margin-right: 30px;
-
-  div {
-    width: 100%;
-    height: 433px;
-    background-color: #F7F8FA;
-    background-image: url(${({image}) => image || ''});
-    background-size: cover;
-  }
-
-  .product-page-info-text {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 26px;
-    text-align: center;
-    letter-spacing: -0.9px;
-    margin-top: 17px;
-  }
-
-  .product-page-shipping-text {
-    margin-top: 30px;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 26px;
-    text-align: center;
-    letter-spacing: -0.9px;
-    color: #56B280;
-  }
-`
-
-const WithCartInfoContainer = styled(InnerContainer)`
-  h3 {
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 58px;
-    letter-spacing: -0.9px;
-  }
-
-  .product-page-product-info-container {
-    display: flex;
-    justify-content: space-between;
-
-    .product-page-price {
-      font-weight: 900;
-      font-size: 26px;
-      line-height: 58px;
-      letter-spacing: -0.9px;
-      color: #56B280;
-      margin-bottom: 23px;
-    }
-
-    .product-page-button-label {
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 26px;
-      text-align: center;
-      letter-spacing: -0.9px;
-      margin-bottom: 6px;
-    }
-
-    ul {
-      width: 350px;
-      border: 1px solid #E6E6E6;
-      list-style: none;
-      border-radius: 5px;
-      padding: 22px;
-      margin-bottom: 67px;
-      
-      p {
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 26px;
-        color: #849A8E;
-      }
-    }
-
-    img {
-      margin-right: 10px;
-    }
-  }
-`
-
-
+import StyledProductPage from "./StyledProductPage";
+import ShowingContainer from "./ShowingContainer";
+import WithCartInfoContainer from "./WithCartInfoContainer";
 
 const ProductPage: React.FC = () => {
     return (

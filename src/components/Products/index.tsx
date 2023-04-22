@@ -2,7 +2,8 @@ import React from "react";
 import ProductCard from "../ProductCard";
 
 import image from '../../assets/images/Product1.svg'
-import {ProductsContainer, StyledProducts} from "./StyledProducts";
+import ProductsContainer from "./ProductsContainer";
+import StyledProducts from "./StyledProducts";
 
 
 const Products: React.FC = () => {

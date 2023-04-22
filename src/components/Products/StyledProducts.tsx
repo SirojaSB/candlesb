@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import {SectionContainer} from "../SectionContainer";
+import React from "react";
 
-export const StyledProducts = styled(SectionContainer)`
+const StyledProductsCont = styled(SectionContainer)`
   padding-top: 90px;
   padding-bottom: 125px;
   display: flex;
@@ -25,11 +26,10 @@ export const StyledProducts = styled(SectionContainer)`
   }
 `
 
-export const ProductsContainer = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(4, 255px);
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-`
+const StyledProducts: React.FC<{children: React.ReactNode}> = ({children}) => {
+    return <StyledProductsCont>
+        {children}
+    </StyledProductsCont>
+}
+
+export default StyledProducts

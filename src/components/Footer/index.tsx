@@ -1,49 +1,9 @@
 import React from "react";
-import styled from "styled-components";
-import {SectionContainer} from "../SectionContainer";
-
-const StyledFooter = styled(SectionContainer)`
-  background-color: #272727;
-  padding-top: 60px;
-  padding-bottom: 80px;
-
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    p {
-      color: #fff;
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 27.6px;
-    }
-
-    ul {
-      display: flex;
-      text-decoration: none;
-      list-style: none;
-
-      li {
-        &:last-of-type {
-          margin-left: 40px;
-        }
-
-        a {
-          color: #fff;
-          font-size: 18px;
-          font-weight: 500;
-          line-height: 27.6px;
-          text-decoration: none;
-        }
-      }
-    }
-  }
-`
+import FooterContainer from "./FooterContainer";
 
 const Footer: React.FC = () => {
     return (
-        <StyledFooter>
+        <FooterContainer>
             <div className='container'>
                 <p>Candlesb &#xa9; 2023</p>
                 <nav>
@@ -59,7 +19,7 @@ const Footer: React.FC = () => {
                     </ul>
                 </nav>
             </div>
-        </StyledFooter>
+        </FooterContainer>
     )
 }
 
