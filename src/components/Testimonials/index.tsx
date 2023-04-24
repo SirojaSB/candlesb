@@ -1,6 +1,4 @@
 import React from "react";
-import styled from "styled-components";
-import {SectionContainer} from "../SectionContainer";
 
 import customerfirst from '../../assets/images/customer1.png'
 import customersecond from '../../assets/images/customer2.png'
