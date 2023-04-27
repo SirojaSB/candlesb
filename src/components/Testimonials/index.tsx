@@ -8,8 +8,6 @@ import ratingfive from '../../assets/images/Stars5.svg'
 import StyledTestimonials from "./StyledTemstimonials";
 import TestimonialsCard from "./TestimonialsCard";
 
-
-
 const Testimonials: React.FC = () => {
     return (
         <StyledTestimonials>

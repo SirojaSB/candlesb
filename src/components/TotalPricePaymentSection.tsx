@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import producimg from '../assets/images/Product1.svg'
+import producimg from '../assets/images/Product1.png'
 
 const StyledTotalPricePaymentSection = styled.div`
   background-color: #F2F2F2;

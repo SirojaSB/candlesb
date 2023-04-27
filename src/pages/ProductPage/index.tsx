@@ -1,6 +1,6 @@
 import React from "react";
 
-import mainimg from '../../assets/images/Product1.svg'
+import mainimg from '../../assets/images/Product1.png'
 import InfoButton from "../../components/InfoButton";
 import cartimg from '../../assets/images/CartIcon.svg'
 import ProductCounter from "../../components/ProdictCounter";

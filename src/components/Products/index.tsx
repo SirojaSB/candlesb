@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "../ProductCard";
 
-import image from '../../assets/images/Product1.svg'
+import image from '../../assets/images/Product1.png'
 import ProductsContainer from "./ProductsContainer";
 import StyledProducts from "./StyledProducts";
 
