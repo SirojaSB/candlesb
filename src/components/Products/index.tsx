@@ -1,25 +1,22 @@
 import React from "react";
 import ProductCard from "../ProductCard";
-
-import image from '../../assets/images/Product1.png'
 import ProductsContainer from "./ProductsContainer";
 import StyledProducts from "./StyledProducts";
+import {useSelector} from "react-redux";
+import {RootState} from "../../redux/store";
 
 
 const Products: React.FC = () => {
+    const {candles} = useSelector((state: RootState) => state.candles)
+
     return (
-        <StyledProducts>
+        <StyledProducts id='products'>
             <h3 className='title'>Наша коллекция</h3>
             <p className='subtitle'>Закажите для себя или для своих близких</p>
             <ProductsContainer>
-                <ProductCard image={image} title='Spiced Mint' price='9.99'/>
-                <ProductCard image={image} title='Spiced Mint' price='9.99'/>
-                <ProductCard image={image} title='Spiced Mint' price='9.99'/>
-                <ProductCard image={image} title='Spiced Mint' price='9.99'/>
-                <ProductCard image={image} title='Spiced Mint' price='9.99'/>
-                <ProductCard image={image} title='Spiced Mint' price='9.99'/>
-                <ProductCard image={image} title='Spiced Mint' price='9.99'/>
-                <ProductCard image={image} title='Spiced Mint' price='9.99'/>
+                {candles.map((item) => (
+                    <ProductCard key={item.id} image={item.imageUrl} title={item.title} price={item.price} id={item.id}/>
+                ))}
             </ProductsContainer>
         </StyledProducts>
     )

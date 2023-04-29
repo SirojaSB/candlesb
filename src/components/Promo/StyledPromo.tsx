@@ -35,6 +35,11 @@ const StyledPromoCont = styled(SectionContainer)`
       font-weight: 400;
       text-align: center;
     }
+    
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
   }
 `
 

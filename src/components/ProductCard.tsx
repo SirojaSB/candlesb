@@ -1,14 +1,22 @@
 import React from "react";
 import styled from "styled-components";
+import {useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {setSelectedPizza} from "../redux/slices/candleSlice";
 
 type ProductCardProps = {
-    [key: string]: string;
+    image: string,
+    title: string,
+    price: number,
+    id: number
 }
 
 const StyledProductCard = styled.li<{ image: string }>`
   width: 255px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.07);
   border-radius: 5px;
+  cursor: pointer;
+
 
   .product-image {
     background-image: url(${({image}) => image || ''});
@@ -35,12 +43,27 @@ const StyledProductCard = styled.li<{ image: string }>`
   }
 `
 
-const ProductCard: React.FC<ProductCardProps> = ({image, title, price}) => {
+const ProductCard: React.FC<ProductCardProps> = ({image, title, price, id}) => {
+    const navigate = useNavigate()
+
+    const dispatch = useDispatch()
+
+    const followToProductPage = () => {
+        dispatch(setSelectedPizza({
+            imageUrl: image,
+            title,
+            price,
+        }))
+
+        navigate(`/candles/${id}`)
+        window.scrollTo(0, 0)
+    }
+
     return (
-        <StyledProductCard image={image}>
+        <StyledProductCard image={image} onClick={() => followToProductPage()}>
             <div className='product-image'/>
             <p className='product-title'>{title}</p>
-            <p className='product-price'>{price} $</p>
+            <p className='product-price'>{price} ₽</p>
         </StyledProductCard>
     )
 }

@@ -26,8 +26,8 @@ const StyledProductsCont = styled(SectionContainer)`
   }
 `
 
-const StyledProducts: React.FC<{children: React.ReactNode}> = ({children}) => {
-    return <StyledProductsCont>
+const StyledProducts: React.FC<{children: React.ReactNode, id?: string}> = ({children, id}) => {
+    return <StyledProductsCont id={id}>
         {children}
     </StyledProductsCont>
 }

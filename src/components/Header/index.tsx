@@ -2,6 +2,7 @@ import React from "react";
 import HeaderLogo from "../HeaderLogo";
 import StyledHeader from "./StyledHeader";
 import HeaderContainer from "./HeaderContainer";
+import {Link} from "react-router-dom";
 
 const Header: React.FC = () => {
     return (
@@ -9,7 +10,7 @@ const Header: React.FC = () => {
             <HeaderLogo/>
             <HeaderContainer>
                 <button type='button' className='header-profile-button'/>
-                <button type='button' className='header-cart-button'/>
+                <Link to='/cart' className='header-cart-button'/>
             </HeaderContainer>
         </StyledHeader>
     )

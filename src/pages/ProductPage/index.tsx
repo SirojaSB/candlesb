@@ -7,21 +7,25 @@ import ProductCounter from "../../components/ProdictCounter";
 import StyledProductPage from "./StyledProductPage";
 import ShowingContainer from "./ShowingContainer";
 import WithCartInfoContainer from "./WithCartInfoContainer";
+import {useSelector} from "react-redux";
+import {RootState} from "../../redux/store";
 
 const ProductPage: React.FC = () => {
+    const {selectedCandle} = useSelector((state: RootState) => state.candles)
+
     return (
         <StyledProductPage>
-            <ShowingContainer image={mainimg}>
+            <ShowingContainer image={selectedCandle.imageUrl}>
                 <div/>
                 <p className='product-page-info-text'>Cделано вручную из натурального соевого воска <br/> Candlesb
                     создан для украшения вашей повседневной жизни.</p>
                 <p className='product-page-shipping-text'>🚚 FREE SHIPPING</p>
             </ShowingContainer>
             <WithCartInfoContainer>
-                <h3>Spiced Mint Candlesb®</h3>
+                <h3>{selectedCandle.title}</h3>
                 <div className='product-page-product-info-container'>
                     <div>
-                        <p className='product-page-price'>$ 9.99</p>
+                        <p className='product-page-price'>{selectedCandle.price} ₽</p>
                         <p className='product-page-button-label'>Quantity</p>
                         <ProductCounter />
                     </div>
