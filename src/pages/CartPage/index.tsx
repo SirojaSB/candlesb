@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCounter from "../../components/ProdictCounter";
+import ProductCounter from "../../components/ProductCounter";
 import InfoButton from "../../components/InfoButton";
 import producimg from '../../assets/images/Product1.png'
 import StyledCartPage from "./StyledCartPage";
@@ -27,7 +27,7 @@ const CartPage: React.FC = () => {
                     </div>
                 </div>
                 <p className='cart-page-price'>$ 10</p>
-                <ProductCounter/>
+                {/*<ProductCounter/>*/}
                 <p className='cart-page-price'>$ 10</p>
             </TableRowCart>
             <div className='cart-page-total-section'>

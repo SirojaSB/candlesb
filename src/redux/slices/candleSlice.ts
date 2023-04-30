@@ -41,7 +41,7 @@ const candleSlice = createSlice({
     name: 'candles',
     initialState,
     reducers: {
-        setSelectedPizza(state, action: PayloadAction<SelectedCandleType>) {
+        setSelectedCandle(state, action: PayloadAction<SelectedCandleType>) {
             state.selectedCandle = action.payload
         }
     },
@@ -61,6 +61,6 @@ const candleSlice = createSlice({
     }
 })
 
-export const {setSelectedPizza} = candleSlice.actions
+export const {setSelectedCandle} = candleSlice.actions
 
 export default candleSlice.reducer

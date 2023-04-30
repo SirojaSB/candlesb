@@ -30,12 +30,18 @@ const StyledProductCounter = styled.div`
   }
 `
 
-const ProductCounter: React.FC = () => {
+type ProductCounterProps = {
+    increaseCounterProduct: () => void,
+    decreaseCounterProduct: () => void,
+    countProduct: number
+}
+
+const ProductCounter: React.FC<ProductCounterProps> = ({increaseCounterProduct, countProduct, decreaseCounterProduct}) => {
     return (
         <StyledProductCounter>
-            <button>+</button>
-            <p>1</p>
-            <button>-</button>
+            <button onClick={increaseCounterProduct}>+</button>
+            <p>{countProduct}</p>
+            <button onClick={decreaseCounterProduct}>-</button>
         </StyledProductCounter>
     )
 }

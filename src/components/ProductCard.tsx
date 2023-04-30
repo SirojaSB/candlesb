@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import {useNavigate} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {setSelectedPizza} from "../redux/slices/candleSlice";
 
 type ProductCardProps = {
     image: string,
@@ -46,15 +44,7 @@ const StyledProductCard = styled.li<{ image: string }>`
 const ProductCard: React.FC<ProductCardProps> = ({image, title, price, id}) => {
     const navigate = useNavigate()
 
-    const dispatch = useDispatch()
-
     const followToProductPage = () => {
-        dispatch(setSelectedPizza({
-            imageUrl: image,
-            title,
-            price,
-        }))
-
         navigate(`/candles/${id}`)
         window.scrollTo(0, 0)
     }
