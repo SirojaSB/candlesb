@@ -11,6 +11,7 @@ import {RootState} from "../../redux/store";
 import {useNavigate, useParams} from "react-router-dom";
 import {setSelectedCandle} from "../../redux/slices/candleSlice";
 import axios from "axios";
+import {createCartItem} from "../../redux/slices/cartSlice";
 
 type CandleItem = {
     id: number,
@@ -53,6 +54,17 @@ const ProductPage: React.FC = () => {
         getCandle()
     }, [])
 
+    const addProductToCart = () => {
+        dispatch(createCartItem({
+            id: Number(id),
+            imageUrl: selectedCandle.imageUrl,
+            title: selectedCandle.title,
+            price: selectedCandle.price,
+            count: countProduct,
+            totalPrice: selectedCandle.price * countProduct,
+        }))
+    }
+
     return (
         <StyledProductPage>
             <ShowingContainer image={selectedCandle.imageUrl}>
@@ -91,7 +103,7 @@ const ProductPage: React.FC = () => {
                                 <p><span>Weight: </span>400g</p>
                             </li>
                         </ul>
-                        <InfoButton width='350px'>
+                        <InfoButton width='350px' onClickButton={addProductToCart}>
                             <img src={cartimg} alt="Иконка корзины"/>
                             + Add to cart
                         </InfoButton>

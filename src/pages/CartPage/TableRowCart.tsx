@@ -58,10 +58,31 @@ const StyledTableRowCart = styled.div`
   }
 `
 
-const TableRowCart: React.FC<{children: React.ReactNode}> = ({children}) => {
-    return <StyledTableRowCart>
-        {children}
-    </StyledTableRowCart>
+type CartItem = {
+    id: number,
+    imageUrl: string,
+    title: string,
+    price: number,
+    count: number,
+    totalPrice: number,
+}
+
+const TableRowCart: React.FC<CartItem> = ({id, imageUrl, title, price, count, totalPrice}) => {
+    return (
+        <StyledTableRowCart>
+            <div className='cart-page-product'>
+                <img src={imageUrl} alt="Фото продукта"/>
+                <div>
+                    <p>{title}</p>
+                    <button>Remove</button>
+                </div>
+            </div>
+            <p className='cart-page-price'>{price} ₽</p>
+            {count}
+            {/*<ProductCounter/>*/}
+            <p className='cart-page-price'>{totalPrice} ₽</p>
+        </StyledTableRowCart>
+    )
 }
 
 export default TableRowCart

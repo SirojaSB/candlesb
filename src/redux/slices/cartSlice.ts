@@ -5,7 +5,8 @@ type CartItem = {
     imageUrl: string,
     title: string,
     price: number,
-    count: number
+    count: number,
+    totalPrice: number
 }
 
 interface CandleSliceState {
@@ -20,12 +21,19 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        setSelectedPizza(state, action: PayloadAction<CartItem>) {
+        createCartItem(state, action: PayloadAction<CartItem>) {
+            const foundItem = state.cartStore.find((item) => item.id === action.payload.id)
 
+            if (foundItem) {
+                foundItem.count += action.payload.count
+                foundItem.totalPrice += action.payload.totalPrice
+            } else {
+                state.cartStore.push({...action.payload})
+            }
         }
     },
 })
 
-export const {setSelectedPizza} = cartSlice.actions
+export const {createCartItem} = cartSlice.actions
 
 export default cartSlice.reducer

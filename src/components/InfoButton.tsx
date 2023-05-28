@@ -5,6 +5,7 @@ type InfoButtonProps = {
     width?: string;
     children?: React.ReactNode;
     type?: "button" | "submit" | "reset";
+    onClickButton?: () => void;
 }
 
 const StyledButton = styled.button<InfoButtonProps>`
@@ -26,8 +27,8 @@ const StyledButton = styled.button<InfoButtonProps>`
 
 
 
-const InfoButton: React.FC<InfoButtonProps> = ({type, width, children}) => {
-    return <StyledButton type={type ? type : 'button'} width={width}>
+const InfoButton: React.FC<InfoButtonProps> = ({type, width, onClickButton, children}) => {
+    return <StyledButton type={type ? type : 'button'} width={width} onClick={onClickButton}>
         {children}
     </StyledButton>
 }

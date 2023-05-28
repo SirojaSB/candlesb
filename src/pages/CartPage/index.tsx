@@ -6,8 +6,12 @@ import StyledCartPage from "./StyledCartPage";
 import TableRowContainer from "./TableRowContainer";
 import CellTitle from "./CellTitle";
 import TableRowCart from "./TableRowCart";
+import {useSelector} from "react-redux";
+import {RootState} from "../../redux/store";
 
 const CartPage: React.FC = () => {
+    const {cartStore} = useSelector((state: RootState) => state.cart)
+
     return (
         <StyledCartPage>
             <h3 className='cart-page-title'>Your cart items</h3>
@@ -18,25 +22,17 @@ const CartPage: React.FC = () => {
                 <CellTitle size='75px'>Quantity</CellTitle>
                 <CellTitle size='55px'>Total</CellTitle>
             </TableRowContainer>
-            <TableRowCart>
-                <div className='cart-page-product'>
-                    <img src={producimg} alt="Фото продукта"/>
-                    <div>
-                        <p>Spiced Mint Candleaf®</p>
-                        <button>Remove</button>
-                    </div>
-                </div>
-                <p className='cart-page-price'>$ 10</p>
-                {/*<ProductCounter/>*/}
-                <p className='cart-page-price'>$ 10</p>
-            </TableRowCart>
+            {cartStore.map((item) => (
+                <TableRowCart key={item.id} {...item}/>
+            ))}
             <div className='cart-page-total-section'>
                 <div className='cart-page-total-section-info'>
                     <div>
                         <p>Sub-total</p>
                         <p>$ 10</p>
                     </div>
-                    <p className='cart-page-total-section-info-caption'>Tax and shipping cost will be calculated later</p>
+                    <p className='cart-page-total-section-info-caption'>Tax and shipping cost will be calculated
+                        later</p>
                 </div>
                 <InfoButton width='189px'>
                     Check-out
