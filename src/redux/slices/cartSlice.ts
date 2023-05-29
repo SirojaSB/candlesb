@@ -11,10 +11,12 @@ type CartItem = {
 
 interface CandleSliceState {
     cartStore: CartItem[],
+    subTotalPrice: number,
 }
 
 const initialState: CandleSliceState = {
     cartStore: [],
+    subTotalPrice: 0,
 }
 
 const cartSlice = createSlice({
@@ -30,10 +32,43 @@ const cartSlice = createSlice({
             } else {
                 state.cartStore.push({...action.payload})
             }
+
+            state.subTotalPrice += action.payload.totalPrice
+        },
+        increaseCountOfItem(state, action: PayloadAction<number>) {
+            const foundItem = state.cartStore.find((item) => item.id === action.payload)
+
+            if (foundItem) {
+                foundItem.count++
+                foundItem.totalPrice += foundItem.price
+                state.subTotalPrice += foundItem.price
+            }
+        },
+        decreaseCountOfItem(state, action: PayloadAction<number>) {
+            const foundItem = state.cartStore.find((item) => item.id === action.payload)
+
+            if (foundItem && foundItem.count !== 1) {
+                foundItem.count--
+                foundItem.totalPrice -= foundItem.price
+                state.subTotalPrice -= foundItem.price
+            } else {
+                state.cartStore = state.cartStore.filter(item => item.id !== action.payload)
+
+                state.subTotalPrice = state.cartStore.reduce((sum, item) => sum += item.price * item.count, 0)
+            }
+        },
+        removeCartItem(state, action: PayloadAction<number>) {
+            const foundItem = state.cartStore.find((item) => item.id === action.payload)
+
+            if (foundItem) {
+                state.subTotalPrice -= foundItem.totalPrice
+
+                state.cartStore = state.cartStore.filter(item => item.id !== action.payload)
+            }
         }
     },
 })
 
-export const {createCartItem} = cartSlice.actions
+export const {createCartItem, increaseCountOfItem, decreaseCountOfItem, removeCartItem} = cartSlice.actions
 
 export default cartSlice.reducer

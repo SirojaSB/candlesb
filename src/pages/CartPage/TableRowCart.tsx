@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import React from "react";
+import {useDispatch} from "react-redux";
+import {decreaseCountOfItem, increaseCountOfItem, removeCartItem} from "../../redux/slices/cartSlice";
+import ProductCounter from "../../components/ProductCounter";
 
 const StyledTableRowCart = styled.div`
   width: 100%;
@@ -68,18 +71,31 @@ type CartItem = {
 }
 
 const TableRowCart: React.FC<CartItem> = ({id, imageUrl, title, price, count, totalPrice}) => {
+    const dispatch = useDispatch()
+
+    const increaseCounterCartProduct = () => {
+        dispatch(increaseCountOfItem(id))
+    }
+
+    const decreaseCounterCartProduct = () => {
+        dispatch(decreaseCountOfItem(id))
+    }
+
+    const removeProductOfCart = () => {
+        dispatch(removeCartItem(id))
+    }
+
     return (
         <StyledTableRowCart>
             <div className='cart-page-product'>
                 <img src={imageUrl} alt="Фото продукта"/>
                 <div>
                     <p>{title}</p>
-                    <button>Remove</button>
+                    <button onClick={() => removeProductOfCart()}>Remove</button>
                 </div>
             </div>
             <p className='cart-page-price'>{price} ₽</p>
-            {count}
-            {/*<ProductCounter/>*/}
+            <ProductCounter increaseCounterProduct={increaseCounterCartProduct} countProduct={count} decreaseCounterProduct={decreaseCounterCartProduct}/>
             <p className='cart-page-price'>{totalPrice} ₽</p>
         </StyledTableRowCart>
     )
