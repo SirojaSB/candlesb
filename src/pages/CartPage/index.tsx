@@ -6,10 +6,12 @@ import CellTitle from "./CellTitle";
 import TableRowCart from "./TableRowCart";
 import {useSelector} from "react-redux";
 import {RootState} from "../../redux/store";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const CartPage: React.FC = () => {
     const {cartStore, subTotalPrice} = useSelector((state: RootState) => state.cart)
+
+    const navigate = useNavigate()
 
     return (
         <StyledCartPage>
@@ -33,7 +35,7 @@ const CartPage: React.FC = () => {
                     <p className='cart-page-total-section-info-caption'>Tax and shipping cost will be calculated
                         later</p>
                 </div>
-                <InfoButton width='189px'>
+                <InfoButton width='189px' onClickButton={() => navigate('/cart/details')}>
                     Check-out
                 </InfoButton>
             </div>
