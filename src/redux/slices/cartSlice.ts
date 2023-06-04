@@ -9,12 +9,12 @@ type CartItem = {
     totalPrice: number
 }
 
-interface CandleSliceState {
+interface CartSliceState {
     cartStore: CartItem[],
     subTotalPrice: number,
 }
 
-const initialState: CandleSliceState = {
+const initialState: CartSliceState = {
     cartStore: [],
     subTotalPrice: 0,
 }

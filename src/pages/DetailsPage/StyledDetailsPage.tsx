@@ -30,10 +30,26 @@ const StyledDetailsPageCont = styled.div`
           border: 1px solid #56B280;
         }
       }
+      
+      .error-input-form {
+        border: 0.5px solid #ff6459;
+
+        &:focus {
+          border: 1px solid #ff6459;
+        }
+      }
+      
+      span {
+        height: 26px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 26px;
+        color: #ff6459;
+      }
     }
     
     .contact-label-form {
-      margin-bottom: 40px;
+      margin-bottom: 14px;
     }
 
     .shipping-label-form {
