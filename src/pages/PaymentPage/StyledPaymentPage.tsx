@@ -23,6 +23,14 @@ const StyledPaymentPageCont = styled.div`
       }
     }
 
+    .error-input-form {
+      border: 0.5px solid #ff6459;
+
+      &:focus {
+        border: 1px solid #ff6459;
+      }
+    }
+
     .payment-label-form {
       margin: 23px 0 20px;
       display: flex;
