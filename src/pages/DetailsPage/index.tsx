@@ -1,4 +1,4 @@
-import React, {FormEvent, FormEventHandler} from "react";
+import React from "react";
 import InfoButton from "../../components/InfoButton";
 import NavPath from "../../components/NavPath";
 import HeaderLogo from "../../components/HeaderLogo";
@@ -26,7 +26,7 @@ const DetailsPage: React.FC = () => {
             country: '',
         })
 
-    const toNextStep = (e: FormEvent<HTMLFormElement>) => {
+    const toNextStep = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         dispatch(createOrderItem({
