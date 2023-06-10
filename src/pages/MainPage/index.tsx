@@ -6,7 +6,7 @@ import Benefits from "../../components/Benefits";
 import Testimonials from "../../components/Testimonials";
 import PopularProducts from "../../components/PopularProducts";
 import {useAppDispatch} from "../../redux/store";
-import {fetchCandles} from "../../redux/slices/candleSlice";
+import {fetchCandles} from "../../redux/slices/candle/slice";
 
 const MainPage: React.FC = () => {
     const dispatch = useAppDispatch()

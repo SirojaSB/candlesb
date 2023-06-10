@@ -1,31 +1,12 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import axios from "axios";
+import {CandleItem, CandleSliceState, SelectedCandleType} from "./types";
 
 export const fetchCandles = createAsyncThunk('candles/fetchCandlesStatus', async () => {
     const {data} = await axios.get<CandleItem[]>('https://63f20e814f17278c9a1f42b0.mockapi.io/candles')
 
     return data
 })
-
-type CandleItem = {
-    id: number,
-    imageUrl: string,
-    title: string,
-    price: number,
-    rating: number
-}
-
-type SelectedCandleType = {
-    imageUrl: string,
-    title: string,
-    price: number,
-}
-
-interface CandleSliceState {
-    candles: CandleItem[],
-    status: 'loading' | 'success' | 'error',
-    selectedCandle: SelectedCandleType
-}
 
 const initialState: CandleSliceState = {
     candles: [],
@@ -37,7 +18,7 @@ const initialState: CandleSliceState = {
     }
 }
 
-const candleSlice = createSlice({
+const slice = createSlice({
     name: 'candles',
     initialState,
     reducers: {
@@ -61,6 +42,6 @@ const candleSlice = createSlice({
     }
 })
 
-export const {setSelectedCandle} = candleSlice.actions
+export const {setSelectedCandle} = slice.actions
 
-export default candleSlice.reducer
+export default slice.reducer

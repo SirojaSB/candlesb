@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import React from "react";
 import {useDispatch} from "react-redux";
-import {decreaseCountOfItem, increaseCountOfItem, removeCartItem} from "../../redux/slices/cartSlice";
+import {decreaseCountOfItem, increaseCountOfItem, removeCartItem} from "../../redux/slices/cart/slice";
 import ProductCounter from "../../components/ProductCounter";
+import {CartItem} from "../../redux/slices/cart/types";
 
 const StyledTableRowCart = styled.div`
   width: 100%;
@@ -60,15 +61,6 @@ const StyledTableRowCart = styled.div`
     letter-spacing: -0.9px;
   }
 `
-
-type CartItem = {
-    id: number,
-    imageUrl: string,
-    title: string,
-    price: number,
-    count: number,
-    totalPrice: number,
-}
 
 const TableRowCart: React.FC<CartItem> = ({id, imageUrl, title, price, count, totalPrice}) => {
     const dispatch = useDispatch()

@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import candleSlice from "./slices/candleSlice";
+import candleSlice from "./slices/candle/slice";
 import {useDispatch} from "react-redux";
-import cartSlice from "./slices/cartSlice";
-import ordersSlice from "./slices/ordersSlice";
+import cartSlice from "./slices/cart/slice";
+import ordersSlice from "./slices/orders/slice";
 
 export const store = configureStore({
     reducer: {

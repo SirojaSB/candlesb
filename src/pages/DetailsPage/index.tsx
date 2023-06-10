@@ -7,7 +7,7 @@ import { PaymentStepContainer } from '../../components/PaymentStepContainer'
 import StyledDetailsPage from "./StyledDetailsPage";
 import useFormWithValidation from "../../utils/useFormWithValidation";
 import {useDispatch} from "react-redux";
-import {createOrderItem} from "../../redux/slices/ordersSlice";
+import {addOrderItemInfo} from "../../redux/slices/orders/slice";
 import {useNavigate} from "react-router-dom";
 
 const DetailsPage: React.FC = () => {
@@ -29,7 +29,7 @@ const DetailsPage: React.FC = () => {
     const toNextStep = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        dispatch(createOrderItem({
+        dispatch(addOrderItemInfo({
             contacts: values.contacts,
             name: values.name,
             surname: values.surname,

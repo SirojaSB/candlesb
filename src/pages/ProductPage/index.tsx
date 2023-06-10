@@ -9,17 +9,10 @@ import WithCartInfoContainer from "./WithCartInfoContainer";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../redux/store";
 import {useNavigate, useParams} from "react-router-dom";
-import {setSelectedCandle} from "../../redux/slices/candleSlice";
+import {setSelectedCandle} from "../../redux/slices/candle/slice";
 import axios from "axios";
-import {createCartItem} from "../../redux/slices/cartSlice";
-
-type CandleItem = {
-    id: number,
-    imageUrl: string,
-    title: string,
-    price: number,
-    rating: number
-}
+import {createCartItem} from "../../redux/slices/cart/slice";
+import {CandleItem} from "../../redux/slices/candle/types";
 
 const ProductPage: React.FC = () => {
     const [countProduct, setCountProduct] = React.useState(1)
