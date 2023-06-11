@@ -4,6 +4,7 @@ import {CartItem, CartSliceState} from "./types";
 const initialState: CartSliceState = {
     cartStore: [],
     subTotalPrice: 0,
+    subTotalCount: 0
 }
 
 const slice = createSlice({
@@ -21,6 +22,7 @@ const slice = createSlice({
             }
 
             state.subTotalPrice += action.payload.totalPrice
+            state.subTotalCount += action.payload.count
         },
         increaseCountOfItem(state, action: PayloadAction<number>) {
             const foundItem = state.cartStore.find((item) => item.id === action.payload)
@@ -29,6 +31,7 @@ const slice = createSlice({
                 foundItem.count++
                 foundItem.totalPrice += foundItem.price
                 state.subTotalPrice += foundItem.price
+                state.subTotalCount++
             }
         },
         decreaseCountOfItem(state, action: PayloadAction<number>) {
@@ -43,12 +46,14 @@ const slice = createSlice({
 
                 state.subTotalPrice = state.cartStore.reduce((sum, item) => sum += item.price * item.count, 0)
             }
+            state.subTotalCount--
         },
         removeCartItem(state, action: PayloadAction<number>) {
             const foundItem = state.cartStore.find((item) => item.id === action.payload)
 
             if (foundItem) {
                 state.subTotalPrice -= foundItem.totalPrice
+                state.subTotalCount -= foundItem.count
 
                 state.cartStore = state.cartStore.filter(item => item.id !== action.payload)
             }
@@ -57,6 +62,7 @@ const slice = createSlice({
         clearCart(state) {
             state.cartStore = []
             state.subTotalPrice = 0
+            state.subTotalCount = 0
         },
     },
 })

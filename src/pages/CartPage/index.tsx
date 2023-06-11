@@ -4,14 +4,27 @@ import StyledCartPage from "./StyledCartPage";
 import TableRowContainer from "./TableRowContainer";
 import CellTitle from "./CellTitle";
 import TableRowCart from "./TableRowCart";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../redux/store";
 import {Link, useNavigate} from "react-router-dom";
+import {createOrderItem} from "../../redux/slices/orders/slice";
 
 const CartPage: React.FC = () => {
-    const {cartStore, subTotalPrice} = useSelector((state: RootState) => state.cart)
+    const {cartStore, subTotalPrice, subTotalCount} = useSelector((state: RootState) => state.cart)
 
     const navigate = useNavigate()
+
+    const dispatch = useDispatch()
+
+    const createOrder = () => {
+        dispatch(createOrderItem({
+            cartStore,
+            subTotalPrice,
+            subTotalCount,
+        }))
+
+        navigate('/cart/details')
+    }
 
     return (
         <StyledCartPage>
@@ -35,7 +48,7 @@ const CartPage: React.FC = () => {
                     <p className='cart-page-total-section-info-caption'>Tax and shipping cost will be calculated
                         later</p>
                 </div>
-                <InfoButton width='189px' onClickButton={() => navigate('/cart/details')}>
+                <InfoButton width='189px' onClickButton={createOrder} isValid={cartStore.length !== 0}>
                     Check-out
                 </InfoButton>
             </div>

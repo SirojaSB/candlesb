@@ -9,6 +9,7 @@ import DetailsPage from "./pages/DetailsPage";
 import PaymentPage from "./pages/PaymentPage";
 import ThanksPage from "./pages/ThanksPage";
 import {Routes, Route} from "react-router-dom";
+import OrdersPage from "./pages/OrdersPage";
 
 const App: React.FC = () => {
     return (
@@ -17,6 +18,7 @@ const App: React.FC = () => {
             <Routes>
                 <Route path='/' element={<MainPage />}/>
                 <Route path='/candles/:id' element={<ProductPage/>}/>
+                <Route path='/orders' element={<OrdersPage/>}/>
                 <Route path='/cart' element={<CartPage/>}/>
                 <Route path='/cart/details' element={<DetailsPage/>}/>
                 <Route path='/cart/payment' element={<PaymentPage/>}/>

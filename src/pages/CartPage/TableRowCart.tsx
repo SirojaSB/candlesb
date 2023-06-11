@@ -50,6 +50,7 @@ const StyledTableRowCart = styled.div`
       color: #56B280;
       border: none;
       background-color: transparent;
+      cursor: pointer;
     }
   }
 

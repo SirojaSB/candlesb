@@ -9,7 +9,7 @@ const Header: React.FC = () => {
         <StyledHeader>
             <HeaderLogo/>
             <HeaderContainer>
-                <button type='button' className='header-profile-button'/>
+                <Link to='/orders' className='header-profile-button'/>
                 <Link to='/cart' className='header-cart-button'/>
             </HeaderContainer>
         </StyledHeader>

@@ -10,4 +10,5 @@ export type CartItem = {
 export interface CartSliceState {
     cartStore: CartItem[],
     subTotalPrice: number,
+    subTotalCount: number,
 }

@@ -1,3 +1,5 @@
+import {CartSliceState} from "../cart/types";
+
 export type OrderPayment = {
     paymentMethod: 'card' | 'upon receiving',
     cardInfo?: {
@@ -6,16 +8,6 @@ export type OrderPayment = {
         date: string,
         cvv: string
     }
-}
-
-export type OrderProduct = {
-    title: string,
-    totalPrice: number
-}
-
-export type InfoProducts = {
-    cartStore: OrderProduct[],
-    subTotalPrice: number,
 }
 
 export type OrderInfo = {
@@ -30,14 +22,14 @@ export type OrderInfo = {
 
 export type OrderItem = {
     id: number,
-    productsInfo: InfoProducts
+    productsInfo: CartSliceState
 }
 
 export type OrderItemWithInfo = OrderItem & OrderInfo
 
 export type OrderPaidItem = {
     payment: OrderPayment,
-} & OrderItem
+} & OrderItemWithInfo
 
 export interface OrderSliceState {
     orders: OrderItem[],

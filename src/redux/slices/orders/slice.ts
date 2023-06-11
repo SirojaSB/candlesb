@@ -1,5 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {InfoProducts, OrderInfo, OrderPayment, OrderSliceState} from "./types";
+import {OrderInfo, OrderPayment, OrderSliceState} from "./types";
+import {CartSliceState} from "../cart/types";
 
 const initialState: OrderSliceState = {
     orders: [],
@@ -12,7 +13,7 @@ const slice = createSlice({
     name: 'orders',
     initialState,
     reducers: {
-        createOrderItem(state, action: PayloadAction<InfoProducts>) {
+        createOrderItem(state, action: PayloadAction<CartSliceState>) {
             state.currentOrderId = state.ordersPaid.length + 1
             const id = state.currentOrderId
 

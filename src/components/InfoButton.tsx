@@ -29,8 +29,6 @@ const StyledButton = styled.button<InfoButtonProps>`
 
 
 const InfoButton: React.FC<InfoButtonProps> = ({type, width, onClickButton, isValid, children}) => {
-    console.log(isValid === undefined? false : !isValid)
-
     return <StyledButton type={type ? type : 'button'} width={width} onClick={onClickButton} disabled={isValid === undefined? false : !isValid} isValid={isValid === undefined? true : isValid}>
         {children}
     </StyledButton>
