@@ -8,13 +8,15 @@ import StyledPaymentPage from "./StyledPaymentPage";
 import useFormWithValidation from "../../utils/useFormWithValidation";
 import {useDispatch} from "react-redux";
 import {createPaidOrderItem} from "../../redux/slices/orders/slice";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {clearCart} from "../../redux/slices/cart/slice";
 
 const PaymentPage: React.FC = () => {
     const [isPaymentOnDelivery, setIsPaymentOnDelivery] = React.useState(false)
 
     const navigate = useNavigate()
+
+    const location = useLocation().pathname
 
     const dispatch = useDispatch()
 
@@ -55,7 +57,7 @@ const PaymentPage: React.FC = () => {
 
         dispatch(clearCart())
 
-        navigate('/cart/thanks')
+        navigate('/cart/thanks', {state: {prevPath: location}})
     }
 
     return (

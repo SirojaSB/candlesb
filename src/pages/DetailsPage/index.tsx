@@ -8,10 +8,12 @@ import StyledDetailsPage from "./StyledDetailsPage";
 import useFormWithValidation from "../../utils/useFormWithValidation";
 import {useDispatch} from "react-redux";
 import {addOrderItemInfo} from "../../redux/slices/orders/slice";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 const DetailsPage: React.FC = () => {
     const dispatch = useDispatch()
+
+    const location = useLocation().pathname
 
     const navigate = useNavigate()
 
@@ -39,7 +41,7 @@ const DetailsPage: React.FC = () => {
             country: values.country,
         }))
 
-        navigate('/cart/payment')
+        navigate('/cart/payment', {state: {prevPath: location}})
     }
 
     return (

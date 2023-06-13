@@ -6,11 +6,13 @@ import CellTitle from "./CellTitle";
 import TableRowCart from "./TableRowCart";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../redux/store";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import {createOrderItem} from "../../redux/slices/orders/slice";
 
 const CartPage: React.FC = () => {
     const {cartStore, subTotalPrice, subTotalCount} = useSelector((state: RootState) => state.cart)
+
+    const location = useLocation().pathname
 
     const navigate = useNavigate()
 
@@ -23,7 +25,7 @@ const CartPage: React.FC = () => {
             subTotalCount,
         }))
 
-        navigate('/cart/details')
+        navigate('/cart/details', {state: {prevPath: location}})
     }
 
     return (
