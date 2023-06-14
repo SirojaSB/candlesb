@@ -2,11 +2,19 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {OrderInfo, OrderPayment, OrderSliceState} from "./types";
 import {CartSliceState} from "../cart/types";
 
+const getLocalStorage = () => {
+    const orders = localStorage.getItem('Candlesb paid orders')
+
+    return orders ? JSON.parse(orders) : []
+}
+
+const ordersData = getLocalStorage()
+
 const initialState: OrderSliceState = {
     orders: [],
     ordersWithInfo: [],
     currentOrderId: 0,
-    ordersPaid: [],
+    ordersPaid: ordersData,
 }
 
 const slice = createSlice({
@@ -20,11 +28,11 @@ const slice = createSlice({
             state.orders.push({id, productsInfo: action.payload})
         },
         addOrderItemInfo(state, action: PayloadAction<OrderInfo>) {
-            const currentOrder =  state.orders[state.orders.length - 1]
+            const currentOrder = state.orders[state.orders.length - 1]
             state.ordersWithInfo.push({...currentOrder, ...action.payload})
         },
         createPaidOrderItem(state, action: PayloadAction<OrderPayment>) {
-            const currentOrder =  state.ordersWithInfo[state.orders.length - 1]
+            const currentOrder = state.ordersWithInfo[state.ordersWithInfo.length - 1]
             state.ordersPaid.push({...currentOrder, payment: action.payload})
         }
     }

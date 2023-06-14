@@ -3,7 +3,7 @@ import React from "react";
 
 const StyledDetailsPageCont = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   form {
     display: flex;

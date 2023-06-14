@@ -3,7 +3,7 @@ import React from "react";
 
 const StyledThanksPageCont = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `
 
 const StyledThanksPage: React.FC<{children: React.ReactNode}> = ({children}) => {

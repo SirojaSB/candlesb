@@ -5,8 +5,8 @@ import {SectionContainer} from "../SectionContainer";
 
 const StyledHeaderCont = styled(SectionContainer)`
   width: calc(100% - (165px * 2));
-  margin: 20px auto 0;
-  padding: 0 0 20px;
+  margin: 0 auto;
+  padding: 20px 0 20px;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #E5E5E5;

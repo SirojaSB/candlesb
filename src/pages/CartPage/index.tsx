@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../redux/store";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {createOrderItem} from "../../redux/slices/orders/slice";
+import CartEmpty from "./CartEmpty";
 
 const CartPage: React.FC = () => {
     const {cartStore, subTotalPrice, subTotalCount} = useSelector((state: RootState) => state.cart)
@@ -26,6 +27,10 @@ const CartPage: React.FC = () => {
         }))
 
         navigate('/cart/details', {state: {prevPath: location}})
+    }
+
+    if (!subTotalPrice) {
+        return <CartEmpty/>
     }
 
     return (

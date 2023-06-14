@@ -7,13 +7,16 @@ import {PaymentStepContainer} from '../../components/PaymentStepContainer'
 import circle from '../../assets/images/ThanksCircle.svg'
 import StyledThanksPage from "./StyledThanksPage";
 import ThanksInfoContainer from "./ThanksInfoContainer";
+import {useNavigate} from "react-router-dom";
 
 const ThanksPage: React.FC = () => {
+    const navigate = useNavigate()
+
     return (
         <StyledThanksPage>
             <PaymentStepContainer>
                 <HeaderLogo/>
-                <NavPath page='payment'/>
+                <NavPath page='thanks'/>
                 <ThanksInfoContainer>
                     <img src={circle} alt="Иконка с галочкой"/>
                     <p className='thanks-info-title'>Оплата подтверждена</p>
@@ -22,7 +25,7 @@ const ThanksPage: React.FC = () => {
                         будет готов к отправке через 2 дня. Пожалуйста, проверяйте свой почтовый ящик для проверки
                         актуальной информации о вашем заказе.
                     </p>
-                    <InfoButton width='320px'>Вернуться к покупкам</InfoButton>
+                    <InfoButton width='320px' onClickButton={() => navigate('/')}>Вернуться к покупкам</InfoButton>
                 </ThanksInfoContainer>
             </PaymentStepContainer>
             <TotalPricePaymentSection/>

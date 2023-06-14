@@ -2,10 +2,11 @@ import styled from "styled-components";
 import {SectionContainer} from "../SectionContainer";
 import React from "react";
 
-const StyledFooterContainer = styled(SectionContainer)`
+const StyledFooterContainer = styled.footer`
+  padding: 60px 165px 80px;
   background-color: #272727;
-  padding-top: 60px;
-  padding-bottom: 80px;
+  position: sticky;
+  top: 100%;
 
   .container {
     display: flex;

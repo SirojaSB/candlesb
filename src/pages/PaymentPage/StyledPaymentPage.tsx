@@ -3,7 +3,7 @@ import React from "react";
 
 const StyledPaymentPageCont = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   form {
     display: flex;

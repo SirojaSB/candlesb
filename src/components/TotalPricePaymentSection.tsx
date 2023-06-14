@@ -35,20 +35,26 @@ const StyledTotalPricePaymentSection = styled.div`
 const TotalPricePaymentSection: React.FC = () => {
     const {cartStore, subTotalPrice} = useSelector((state: RootState) => state.cart)
 
+    const {ordersPaid} = useSelector((state: RootState) => state.orders)
+
+    const currentOrderPaid = ordersPaid[ordersPaid.length - 1]
+
     return (
         <StyledTotalPricePaymentSection>
-            {cartStore.map((item) => <InfoProductOnPaymentContainer key={item.id} {...item}/>)}
+            {cartStore.length !== 0 ?
+                cartStore.map((item) => <InfoProductOnPaymentContainer key={item.id} {...item}/>) :
+                currentOrderPaid.productsInfo.cartStore.map((item) => <InfoProductOnPaymentContainer key={item.id} {...item}/>)}
             <div className='total-price-payment-section-info'>
                 <p className='total-price-payment-section-info-reg'>Цена продукта</p>
-                <p className='total-price-payment-section-info-reg'>{subTotalPrice} ₽</p>
+                <p className='total-price-payment-section-info-reg'>{subTotalPrice || currentOrderPaid.productsInfo.subTotalPrice} ₽</p>
             </div>
             <div className='total-price-payment-section-info total-price-payment-section-info-with-border'>
                 <p className='total-price-payment-section-info-reg'>Доставка</p>
                 <p className='total-price-payment-section-info-reg'>Бесплатно</p>
             </div>
             <div className='total-price-payment-section-info'>
-                <p className='total-price-payment-section-info-reg'>Всего</p>
-                <p className='total-price-payment-section-info-reg total-price-payment-section-info-finally'>{subTotalPrice} ₽</p>
+                <p className='total-price-payment-section-info-reg'>Итого</p>
+                <p className='total-price-payment-section-info-reg total-price-payment-section-info-finally'>{subTotalPrice || currentOrderPaid.productsInfo.subTotalPrice} ₽</p>
             </div>
         </StyledTotalPricePaymentSection>
     )
