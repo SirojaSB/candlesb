@@ -64,14 +64,14 @@ const ProductPage: React.FC = () => {
                 <div/>
                 <p className='product-page-info-text'>Cделано вручную из натурального соевого воска <br/> Candlesb
                     создан для украшения вашей повседневной жизни.</p>
-                <p className='product-page-shipping-text'>🚚 FREE SHIPPING</p>
+                <p className='product-page-shipping-text'>🚚 БЕСПЛАТНАЯ ДОСТАВКА</p>
             </ShowingContainer>
             <WithCartInfoContainer>
                 <h3>{selectedCandle.title}</h3>
                 <div className='product-page-product-info-container'>
                     <div>
                         <p className='product-page-price'>{selectedCandle.price} ₽</p>
-                        <p className='product-page-button-label'>Quantity</p>
+                        <p className='product-page-button-label'>Количество</p>
                         <ProductCounter
                             countProduct={countProduct}
                             increaseCounterProduct={() => setCountProduct((prev) => prev + 1)}
@@ -81,24 +81,24 @@ const ProductPage: React.FC = () => {
                     <div>
                         <ul>
                             <li>
-                                <p><span>Wax: </span>Top grade Soy wax that delivers a smoke less, consistent burn</p>
+                                <p><span>Воск: </span>Соевый воск высшего сорта, обеспечивающий равномерное горение без дыма.</p>
                             </li>
                             <li>
-                                <p><span>Fragrance: </span>Premium quality ingredients with natural essential oils</p>
+                                <p><span>Аромат: </span>Ингредиенты высшего качества с натуральными эфирными маслами.</p>
                             </li>
                             <li>
-                                <p><span>Burning Time: </span>70-75 hours</p>
+                                <p><span>Время горения: </span>70-75 часов</p>
                             </li>
                             <li>
-                                <p><span>Dimension: </span>10cm x 5cm </p>
+                                <p><span>Размер: </span>10см x 5см </p>
                             </li>
                             <li>
-                                <p><span>Weight: </span>400g</p>
+                                <p><span>Вес: </span>400г</p>
                             </li>
                         </ul>
                         <InfoButton width='350px' onClickButton={addProductToCart}>
                             <img src={cartimg} alt="Иконка корзины"/>
-                            + Add to cart
+                            + Добавить в корзину
                         </InfoButton>
                     </div>
                 </div>

@@ -35,13 +35,13 @@ const CartPage: React.FC = () => {
 
     return (
         <StyledCartPage>
-            <h3 className='cart-page-title'>Your cart items</h3>
-            <Link to='/' className='cart-page-back-link'>Back to shopping</Link>
+            <h3 className='cart-page-title'>Ваша корзина</h3>
+            <Link to='/' className='cart-page-back-link'>На главную</Link>
             <TableRowContainer>
-                <CellTitle size='580px'>Product</CellTitle>
-                <CellTitle size='55px'>Price</CellTitle>
-                <CellTitle size='75px'>Quantity</CellTitle>
-                <CellTitle size='55px'>Total</CellTitle>
+                <CellTitle size='580px'>Товар</CellTitle>
+                <CellTitle size='55px'>Цена</CellTitle>
+                <CellTitle size='75px'>Количество</CellTitle>
+                <CellTitle size='55px'>Итого</CellTitle>
             </TableRowContainer>
             {cartStore.map((item) => (
                 <TableRowCart key={item.id} {...item}/>
@@ -49,14 +49,13 @@ const CartPage: React.FC = () => {
             <div className='cart-page-total-section'>
                 <div className='cart-page-total-section-info'>
                     <div>
-                        <p>Sub-total</p>
+                        <p>Общая сумма</p>
                         <p>{subTotalPrice} ₽</p>
                     </div>
-                    <p className='cart-page-total-section-info-caption'>Tax and shipping cost will be calculated
-                        later</p>
+                    <p className='cart-page-total-section-info-caption'>Стоимость доставки будет рассчитана позже</p>
                 </div>
                 <InfoButton width='189px' onClickButton={createOrder} isValid={cartStore.length !== 0}>
-                    Check-out
+                    К оплате
                 </InfoButton>
             </div>
         </StyledCartPage>

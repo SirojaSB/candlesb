@@ -84,7 +84,7 @@ const TableRowCart: React.FC<CartItem> = ({id, imageUrl, title, price, count, to
                 <img src={imageUrl} alt="Фото продукта"/>
                 <div>
                     <p>{title}</p>
-                    <button onClick={() => removeProductOfCart()}>Remove</button>
+                    <button onClick={() => removeProductOfCart()}>убрать</button>
                 </div>
             </div>
             <p className='cart-page-price'>{price} ₽</p>
